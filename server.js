@@ -44,7 +44,7 @@ function timestamp(req){
   }
 
   let result = {
-    'unix': unix,
+    'unix': unix * 1000,
     'utc': unixToDate(unix)
   };
 
