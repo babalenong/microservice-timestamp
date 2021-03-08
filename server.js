@@ -24,7 +24,17 @@ app.get("/api/hello", function (req, res) {
   res.json({greeting: 'hello API'});
 });
 
+// timestamp API
+function timestamp(req){
+  let result = {
+    repeat : req
+  };
+  return result;
+}
 
+app.get("/api/:time", function (req, res){
+  res.json(timestamp(req.params.time));
+});
 
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function () {
