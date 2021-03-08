@@ -32,7 +32,7 @@ function timestamp(req){
   return result;
 }
 
-app.get("/api/:time", function (req, res){
+app.get("/api/timestamp/:time", function (req, res){
   res.json(timestamp(req.params.time));
 });
 
