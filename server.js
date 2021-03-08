@@ -25,10 +25,29 @@ app.get("/api/hello", function (req, res) {
 });
 
 // timestamp API
+function dateToUnix(req){
+  return parseInt((new Date(req).getTime() / 1000).toFixed(0));
+}
+
+function unixToDate(unix){
+  let date = new Date(unix * 1000);
+  return date.toUTCString()
+}
+
 function timestamp(req){
+  var unix;
+
+  if (req.includes("-")){
+    unix = dateToUnix(req);
+  } else {
+    unix = req
+  }
+
   let result = {
-    repeat : req
+    'unix': unix,
+    'utc': unixToDate(unix)
   };
+
   return result;
 }
 
