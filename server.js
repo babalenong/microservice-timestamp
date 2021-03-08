@@ -40,7 +40,7 @@ function timestamp(req){
   if (req.includes("-")){
     unix = dateToUnix(req);
   } else {
-    unix = req
+    unix = req / 1000
   }
 
   let result = {
